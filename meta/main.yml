@@ -1,0 +1,14 @@
+---
+
+galaxy_info:
+  author: ricardogama
+  description: Google protocol buffers role
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+    - name: Debian
+      versions:
+        - all
+  galaxy_tags:
+    - protobuf
+    - protoc

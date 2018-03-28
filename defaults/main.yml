@@ -1,0 +1,4 @@
+---
+
+protobuf_dest: /usr/local/protoc
+protobuf_src: https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip

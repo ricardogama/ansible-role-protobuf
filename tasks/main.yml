@@ -1,0 +1,25 @@
+---
+
+- name: Install unzip
+  apt: name=unzip update_cache=yes
+  when: (protobuf_src | splitext | last) == ".zip"
+
+- name: Install tar
+  apt: name=tar update_cache=yes
+  when: (protobuf_src | splitext | last) == ".gz"
+
+- name: Create protoc directory
+  file: path={{ protobuf_dest }} state=directory
+
+- name: Download protobuf
+  unarchive:
+    src: "{{ protobuf_src }}"
+    dest: "{{ protobuf_dest }}"
+    remote_src: yes
+    mode: 755
+
+- name: Link protobuf bin
+  file: src={{ protobuf_dest }}/bin/protoc dest=/usr/local/bin/protoc state=link
+
+- name: Link protobuf include
+  file: src={{ protobuf_dest }}/include/google dest=/usr/local/include/google state=link
